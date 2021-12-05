@@ -19,7 +19,7 @@ fun main() {
             }
         }
 
-        println("Day 02, Part 1: x: $x, y: $y, answer: ${x*y}")
+        println("Day 02, Part 1: x: $x, y: $y, answer: ${x * y}")
     }
 
     fun part2() {
@@ -42,7 +42,7 @@ fun main() {
             }
         }
 
-        println("Day 02, Part 2: x: $x, y: $y, answer: ${x*y}")
+        println("Day 02, Part 2: x: $x, y: $y, answer: ${x * y}")
     }
 
     part1()

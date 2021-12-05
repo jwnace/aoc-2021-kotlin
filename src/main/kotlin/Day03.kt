@@ -32,8 +32,7 @@ fun main() {
 
                 if (count0 > count1) {
                     values.retainAll { it[i] == '0' }
-                }
-                else {
+                } else {
                     values.retainAll { it[i] == '1' }
                 }
 
@@ -54,8 +53,7 @@ fun main() {
 
                 if (count0 > count1) {
                     values.retainAll { it[i] == '1' }
-                }
-                else {
+                } else {
                     values.retainAll { it[i] == '0' }
                 }
 
@@ -70,7 +68,7 @@ fun main() {
         val oxygen = calculateOxygenGeneratorRating()
         val co2 = calculateCO2ScrubberRating()
 
-        println("Day 03, Part 2: oxygen: $oxygen, c02: $co2, answer: ${oxygen * co2}")
+        println("Day 03, Part 2: oxygen: $oxygen, co2: $co2, answer: ${oxygen * co2}")
     }
 
     part1()
