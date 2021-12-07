@@ -4,41 +4,24 @@ import kotlin.math.abs
 fun main() {
     val input = File("input/day07.txt").readLines()
 
-    fun part1() {
+    fun solve(part: Int): Int {
         val crabs = input[0].split(',').map { it.toInt() }
-        val min = crabs.minOrNull() ?: 0
-        val max = crabs.maxOrNull() ?: 0
-        var fuel = Int.MAX_VALUE
+        val min = crabs.minOf { it }
+        val max = crabs.maxOf { it }
 
-        for (i in min..max) {
-            val sum = crabs.sumOf { abs(it - i) }
-            fuel = if (sum < fuel) sum else fuel
+        return if (part == 1) {
+            (min..max).minOf { x -> crabs.sumOf { abs(it - x) } }
+        } else {
+            (min..max).minOf { x -> crabs.sumOf { c -> abs(c - x).let { it * (it + 1) / 2 } } }
         }
+    }
 
-        println("Day 07, Part 1: $fuel")
+    fun part1() {
+        println("Day 07, Part 1: ${solve(1)}")
     }
 
     fun part2() {
-        val crabs = input[0].split(',').map { it.toInt() }
-        val min = crabs.minOrNull() ?: 0
-        val max = crabs.maxOrNull() ?: 0
-        var fuel = Int.MAX_VALUE
-
-        for (i in min..max) {
-            var sum = 0
-
-            for (j in crabs) {
-                val steps = abs(j - i)
-
-                for (k in 1..steps) {
-                    sum += k
-                }
-            }
-
-            fuel = if (sum < fuel) sum else fuel
-        }
-
-        println("Day 07, Part 2: $fuel")
+        println("Day 07, Part 2: ${solve(2)}")
     }
 
     part1()
