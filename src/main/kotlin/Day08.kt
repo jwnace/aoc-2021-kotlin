@@ -14,14 +14,15 @@ fun main() {
     }
 
     fun String.intersect(str: String): Int = this.toSet().intersect(str.toSet()).size
+    fun String.sort(): String = this.toSortedSet().joinToString("")
 
     fun part2() {
         var sum = 0
 
         for (line in input) {
             val values = line.split(" | ")
-            val patterns = values[0].split(' ').map { it.toSortedSet().joinToString("") }
-            val digits = values[1].split(' ').map { it.toSortedSet().joinToString("") }
+            val patterns = values[0].split(' ').map { it.sort() }
+            val digits = values[1].split(' ').map { it.sort() }
             val dict = mutableMapOf<String, Int>()
 
             val one = patterns.single { it.length == 2 }
