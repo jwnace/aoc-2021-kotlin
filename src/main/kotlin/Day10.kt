@@ -20,6 +20,7 @@ fun main() {
 
                     if (map[temp] != line[i]) {
                         illegalChars.add(line[i])
+                        break
                     }
                 }
             }
@@ -48,6 +49,7 @@ fun main() {
 
                     if (map[temp] != line[i]) {
                         corrupted = true
+                        break
                     }
                 }
             }
